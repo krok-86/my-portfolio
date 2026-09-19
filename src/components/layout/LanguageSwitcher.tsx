@@ -9,9 +9,9 @@ type LanguageSwitcherProps = {
 
 export function LanguageSwitcher({ locale, label }: LanguageSwitcherProps) {
   return (
-    <nav aria-label={label} className="flex items-center gap-2 font-mono text-xs tracking-[0.14em]">
+    <nav aria-label={label} className="flex items-center gap-1 font-mono text-xs tracking-[0.14em]">
       {locales.map((item, index) => (
-        <span key={item} className="flex items-center gap-2">
+        <span key={item} className="flex items-center gap-1">
           {index > 0 ? (
             <span aria-hidden="true" className="text-muted/50">
               /
@@ -20,9 +20,10 @@ export function LanguageSwitcher({ locale, label }: LanguageSwitcherProps) {
           <Link
             href={`/${item}`}
             hrefLang={item}
+            lang={item}
             aria-current={item === locale ? "page" : undefined}
             className={cn(
-              "transition-colors",
+              "inline-flex min-h-11 min-w-9 items-center justify-center transition-colors",
               item === locale
                 ? "text-foreground"
                 : "text-muted hover:text-accent",

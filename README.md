@@ -27,6 +27,8 @@ npm start
 
 ## Deploy
 
-The site is static content with no backend. Deploy on Vercel (or similar) and set `NEXT_PUBLIC_SITE_URL` to the public origin, for example `https://your-domain.com`.
+The site has no backend. Deploy on Vercel (or similar). Canonical, Open Graph, sitemap, and JSON-LD use `NEXT_PUBLIC_SITE_URL` when it is set. On Vercel, the deployment URL is used automatically if that variable is empty.
+
+Do not use `localhost` in production metadata.
 
 Resume file: `public/resume.pdf`.

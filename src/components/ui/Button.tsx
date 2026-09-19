@@ -19,7 +19,7 @@ export function Button({
   className,
 }: ButtonProps) {
   const shared =
-    "inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium transition-colors";
+    "inline-flex min-h-11 items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium transition-colors";
 
   return (
     <a

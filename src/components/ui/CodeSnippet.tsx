@@ -1,8 +1,9 @@
 type CodeSnippetProps = {
+  name: string;
   availability: string;
 };
 
-export function CodeSnippet({ availability }: CodeSnippetProps) {
+export function CodeSnippet({ name, availability }: CodeSnippetProps) {
   return (
     <div
       aria-hidden="true"
@@ -21,7 +22,7 @@ export function CodeSnippet({ availability }: CodeSnippetProps) {
           {"  "}
           <span className="text-foreground/70">name</span>
           <span className="text-muted">=</span>
-          <span className="text-foreground">{'"Konstantin Bykadorov"'}</span>
+          <span className="text-foreground">{`"${name}"`}</span>
           {"\n"}
           {"  "}
           <span className="text-foreground/70">stack</span>

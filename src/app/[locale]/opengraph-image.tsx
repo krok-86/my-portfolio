@@ -44,12 +44,12 @@ export default async function OpenGraphImage({
           <div
             style={{
               display: "flex",
-              fontSize: 64,
+              fontSize: locale === "ru" ? 48 : 64,
               fontWeight: 600,
               letterSpacing: -1,
             }}
           >
-            Konstantin Bykadorov
+            {dict.profile.name}
           </div>
           <div
             style={{

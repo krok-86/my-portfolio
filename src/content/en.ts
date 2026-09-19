@@ -20,7 +20,6 @@ export const en: Dictionary = {
       "Redux Toolkit",
       "RTK Query",
     ],
-    snippetStack: ["React", "TypeScript", "Next.js"],
     about: [
       "I build and maintain production frontend applications: architecture, reusable UI, data-heavy interfaces, and complex forms. I work closely with design and backend, and care about code that stays readable after the first version.",
       "Currently at Garpix, I work on commercial React + TypeScript applications — from UI Kit and API integration to tests and legacy modernization. I am looking for a Frontend Engineer / Middle Frontend Developer role in a product team, preferably remote and international.",
@@ -28,7 +27,7 @@ export const en: Dictionary = {
   },
   header: {
     skipToContent: "Skip to content",
-    primaryNav: "Primary",
+    primaryNav: "Primary navigation",
     email: "Email",
     resume: "Resume",
     openMenu: "Open menu",
@@ -56,7 +55,7 @@ export const en: Dictionary = {
     eyebrow: "02 / experience",
     title: "Commercial experience",
     description:
-      "A short path from trainee work to shipping production React + TypeScript applications.",
+      "Commercial React and TypeScript work in product teams: architecture, UI systems, forms, data, and tests.",
     current: "Current",
     education: "Master's degree, Engineering, Southern Federal University",
     roles: [
@@ -161,7 +160,7 @@ export const en: Dictionary = {
       },
       {
         title: "AI-assisted Engineering",
-        body: "Cursor and GitHub Copilot for code generation, refactoring, boilerplate reduction, test generation, debugging, and exploring implementation approaches. The engineering judgment stays with the developer.",
+        body: "Cursor and GitHub Copilot for code generation, refactoring, boilerplate reduction, test generation, debugging, and exploring implementation approaches. AI-generated code is reviewed before it ships — the engineering judgment stays with the developer.",
       },
     ],
   },
@@ -207,11 +206,11 @@ export const en: Dictionary = {
   },
   work: {
     eyebrow: "05 / work",
-    title: "Selected work",
+    title: "Engineering work",
     description:
-      "Categories from commercial projects rather than a public GitHub showcase.",
+      "Types of commercial frontend work rather than a public GitHub showcase.",
     disclaimer:
-      "Selected work is based on commercial projects and cannot be publicly disclosed.",
+      "These examples are based on commercial projects and cannot be publicly disclosed.",
     samples: [
       {
         category: "UI / Component Architecture",
@@ -235,7 +234,7 @@ export const en: Dictionary = {
     downloadCv: "Download CV",
   },
   footer: {
-    navLabel: "Footer",
+    navLabel: "Footer navigation",
   },
   metadata: {
     title: "Konstantin Bykadorov — Frontend Engineer",

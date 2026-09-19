@@ -2,7 +2,7 @@ import type { Dictionary } from "@/types/content";
 
 export const ru: Dictionary = {
   profile: {
-    name: "Konstantin Bykadorov",
+    name: "Быкадоров Константин",
     shortName: "KB",
     role: "Frontend Engineer",
     valueProposition:
@@ -20,7 +20,6 @@ export const ru: Dictionary = {
       "Redux Toolkit",
       "RTK Query",
     ],
-    snippetStack: ["React", "TypeScript", "Next.js"],
     about: [
       "Я разрабатываю и поддерживаю продакшен frontend-приложения: архитектура, переиспользуемый UI, интерфейсы с большим объёмом данных и сложные формы. Работаю вместе с дизайном и backend и слежу за тем, чтобы код оставался читаемым после первой версии.",
       "Сейчас в Garpix работаю над коммерческими приложениями на React + TypeScript — от UI Kit и интеграции с API до тестов и модернизации legacy-кода. Ищу позицию Frontend Engineer / Middle Frontend Developer в продуктовой команде, предпочтительно remote и в международной среде.",
@@ -38,7 +37,7 @@ export const ru: Dictionary = {
   nav: [
     { href: "#about", label: "Обо мне" },
     { href: "#experience", label: "Опыт" },
-    { href: "#work", label: "Работы" },
+    { href: "#work", label: "Задачи" },
     { href: "#contact", label: "Контакты" },
   ],
   hero: {
@@ -56,7 +55,7 @@ export const ru: Dictionary = {
     eyebrow: "02 / experience",
     title: "Коммерческий опыт",
     description:
-      "Короткий путь от trainee-задач до продакшен-приложений на React и TypeScript.",
+      "Коммерческая разработка на React и TypeScript в продуктовых командах: архитектура, UI-системы, формы, данные и тесты.",
     current: "Сейчас",
     education: "Магистратура, инженерное дело, Южный федеральный университет",
     roles: [
@@ -161,7 +160,7 @@ export const ru: Dictionary = {
       },
       {
         title: "AI-assisted разработка",
-        body: "Cursor и GitHub Copilot для генерации кода, рефакторинга, сокращения boilerplate, тестов, отладки и сравнения подходов. Инженерные решения остаются за разработчиком.",
+        body: "Cursor и GitHub Copilot для генерации кода, рефакторинга, сокращения boilerplate, тестов, отладки и сравнения подходов. Код от AI проверяется перед попаданием в продукт — инженерные решения остаются за разработчиком.",
       },
     ],
   },
@@ -207,9 +206,9 @@ export const ru: Dictionary = {
   },
   work: {
     eyebrow: "05 / work",
-    title: "Избранные работы",
+    title: "Примеры инженерных задач",
     description:
-      "Категории коммерческих задач, а не публичное GitHub-портфолио.",
+      "Типы коммерческих frontend-задач, а не публичное GitHub-портфолио.",
     disclaimer:
       "Примеры основаны на коммерческих проектах и не могут быть раскрыты публично.",
     samples: [
@@ -235,10 +234,10 @@ export const ru: Dictionary = {
     downloadCv: "Скачать CV",
   },
   footer: {
-    navLabel: "Подвал",
+    navLabel: "Навигация в подвале",
   },
   metadata: {
-    title: "Konstantin Bykadorov — Frontend Engineer",
+    title: "Быкадоров Константин — Frontend Engineer",
     description:
       "Frontend-инженер с ~3 годами коммерческого опыта в разработке веб-приложений на React и TypeScript.",
     ogLocale: "ru_RU",
@@ -249,7 +248,7 @@ export const ru: Dictionary = {
       "React",
       "TypeScript",
       "Next.js",
-      "Konstantin Bykadorov",
+      "Быкадоров Константин",
     ],
   },
 };

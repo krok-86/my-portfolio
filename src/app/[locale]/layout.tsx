@@ -12,11 +12,13 @@ import { isLocale, locales } from "@/i18n/config";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin", "cyrillic"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 type LocaleLayoutProps = {
@@ -37,9 +39,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const dict = getDictionary(locale);
+  const localePath = `/${isLocale(locale) ? locale : "en"}`;
 
   return {
-    metadataBase: new URL(siteUrl),
+    ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
     title: {
       default: dict.metadata.title,
       template: `%s — ${dict.profile.name}`,
@@ -50,7 +53,7 @@ export async function generateMetadata({
     creator: dict.profile.name,
     openGraph: {
       type: "website",
-      url: `${siteUrl}/${isLocale(locale) ? locale : "en"}`,
+      url: localePath,
       title: dict.metadata.title,
       description: dict.metadata.description,
       siteName: dict.profile.name,
@@ -67,7 +70,7 @@ export async function generateMetadata({
       follow: true,
     },
     alternates: {
-      canonical: `/${isLocale(locale) ? locale : "en"}`,
+      canonical: localePath,
       languages: {
         en: "/en",
         ru: "/ru",
@@ -94,8 +97,8 @@ export default async function LocaleLayout({
     name: dict.profile.name,
     jobTitle: dict.profile.role,
     description: dict.metadata.description,
-    email: contacts.email,
-    url: `${siteUrl}/${locale}`,
+    email: `mailto:${contacts.email}`,
+    ...(siteUrl ? { url: `${siteUrl}/${locale}` } : {}),
     sameAs: [contacts.linkedin],
     knowsAbout: [...dict.profile.heroStack],
   };

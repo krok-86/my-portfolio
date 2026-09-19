@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { Container } from "@/components/layout/Container";
 import { contacts } from "@/content/contacts";
@@ -16,6 +16,9 @@ type HeaderProps = {
 export function Header({ dict, locale }: HeaderProps) {
   const [open, setOpen] = useState(false);
   const menuId = useId();
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const wasOpen = useRef(false);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -25,9 +28,46 @@ export function Header({ dict, locale }: HeaderProps) {
   }, [open]);
 
   useEffect(() => {
+    if (open) {
+      wasOpen.current = true;
+      const firstLink = menuRef.current?.querySelector<HTMLElement>("a");
+      firstLink?.focus();
+      return;
+    }
+
+    if (wasOpen.current) {
+      buttonRef.current?.focus();
+      wasOpen.current = false;
+    }
+  }, [open]);
+
+  useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         setOpen(false);
+        return;
+      }
+
+      if (!open || event.key !== "Tab" || !menuRef.current) {
+        return;
+      }
+
+      const focusable = [
+        ...menuRef.current.querySelectorAll<HTMLElement>("a, button"),
+      ];
+      if (focusable.length === 0) {
+        return;
+      }
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
       }
     }
 
@@ -44,13 +84,13 @@ export function Header({ dict, locale }: HeaderProps) {
       window.removeEventListener("keydown", onKeyDown);
       media.removeEventListener("change", onViewportChange);
     };
-  }, []);
+  }, [open]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-line/80 bg-background/80 backdrop-blur-md">
       <Container className="flex h-16 items-center justify-between">
         <a
-          href={`/${locale}#top`}
+          href={`/${locale}`}
           className="font-mono text-sm tracking-[0.18em] text-foreground"
         >
           {dict.profile.shortName}
@@ -90,8 +130,9 @@ export function Header({ dict, locale }: HeaderProps) {
             {dict.header.resume}
           </a>
           <button
+            ref={buttonRef}
             type="button"
-            className="inline-flex size-10 items-center justify-center rounded-md border border-line md:hidden"
+            className="inline-flex size-11 items-center justify-center rounded-md border border-line md:hidden"
             aria-expanded={open}
             aria-controls={menuId}
             aria-label={open ? dict.header.closeMenu : dict.header.openMenu}
@@ -100,7 +141,7 @@ export function Header({ dict, locale }: HeaderProps) {
             <span className="sr-only">
               {open ? dict.header.closeMenu : dict.header.openMenu}
             </span>
-            <span className="relative block h-3.5 w-4">
+            <span className="relative block h-3.5 w-4" aria-hidden="true">
               <span
                 className={cn(
                   "absolute top-[7px] left-0 block h-px w-4 origin-center bg-foreground transition-transform duration-200",
@@ -120,6 +161,7 @@ export function Header({ dict, locale }: HeaderProps) {
 
       <div
         id={menuId}
+        ref={menuRef}
         hidden={!open}
         className="border-t border-line bg-background md:hidden"
       >

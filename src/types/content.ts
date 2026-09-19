@@ -38,7 +38,6 @@ export type Dictionary = {
     availability: string;
     seeking: string[];
     heroStack: string[];
-    snippetStack: string[];
     about: string[];
   };
   header: {

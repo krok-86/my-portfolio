@@ -3,6 +3,10 @@ import { siteUrl } from "@/content/site";
 import { locales } from "@/i18n/config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  if (!siteUrl) {
+    return [];
+  }
+
   return locales.map((locale) => ({
     url: `${siteUrl}/${locale}`,
     lastModified: new Date(),

@@ -75,7 +75,10 @@ export function Hero({ dict }: HeroProps) {
           </ul>
         </div>
         <div className="hero-enter lg:mt-10 lg:w-full lg:justify-self-end">
-          <CodeSnippet availability={dict.profile.availability} />
+          <CodeSnippet
+            name={dict.profile.name}
+            availability={dict.profile.availability}
+          />
         </div>
       </Container>
     </section>
