@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { SiteBackground } from "@/components/layout/SiteBackground";
 import { contacts } from "@/content/contacts";
 import { getDictionary } from "@/content/get-dictionary";
 import { siteUrl } from "@/content/site";
@@ -108,22 +109,25 @@ export default async function LocaleLayout({
       lang={locale}
       className={`${inter.variable} ${geistMono.variable}`}
     >
-      <body className="min-h-screen bg-background font-sans text-foreground antialiased">
+      <body className="relative min-h-screen bg-background font-sans text-foreground antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
           suppressHydrationWarning
         />
-        <a
-          href="#content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-[100] focus:rounded-md focus:bg-accent focus:px-3 focus:py-2 focus:text-background"
-        >
-          {dict.header.skipToContent}
-        </a>
-        <div id="top" />
-        <Header dict={dict} locale={locale} />
-        {children}
-        <Footer dict={dict} />
+        <SiteBackground />
+        <div className="relative z-10">
+          <a
+            href="#content"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-[100] focus:rounded-md focus:bg-accent focus:px-3 focus:py-2 focus:text-background"
+          >
+            {dict.header.skipToContent}
+          </a>
+          <div id="top" />
+          <Header dict={dict} locale={locale} />
+          {children}
+          <Footer dict={dict} />
+        </div>
       </body>
     </html>
   );

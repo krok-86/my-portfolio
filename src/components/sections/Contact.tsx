@@ -1,18 +1,21 @@
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/layout/Container";
-import { contacts } from "@/content/contacts";
+import { contacts, getResume } from "@/content/contacts";
 import {
   DownloadIcon,
   LinkedInIcon,
   MailIcon,
 } from "@/components/icons/Icons";
 import type { Dictionary } from "@/types/content";
+import type { Locale } from "@/i18n/config";
 
 type ContactProps = {
   dict: Dictionary;
+  locale: Locale;
 };
 
-export function Contact({ dict }: ContactProps) {
+export function Contact({ dict, locale }: ContactProps) {
+  const resume = getResume(locale);
   return (
     <section
       id="contact"
@@ -44,7 +47,7 @@ export function Contact({ dict }: ContactProps) {
             <MailIcon className="mr-2 size-4" />
             {contacts.email}
           </Button>
-          <Button href={contacts.resumeHref} variant="ghost" download>
+          <Button href={resume.href} variant="ghost" download={resume.download}>
             <DownloadIcon className="mr-2 size-4" />
             {dict.contact.downloadCv}
           </Button>

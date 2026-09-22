@@ -31,4 +31,6 @@ The site has no backend. Deploy on Vercel (or similar). Canonical, Open Graph, s
 
 Do not use `localhost` in production metadata.
 
-Resume file: `public/resume.pdf`.
+Resume files:
+- English: `public/resume-en.pdf`
+- Russian: `public/resume-ru.pdf`

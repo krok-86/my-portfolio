@@ -30,6 +30,31 @@ body {
   font-family: var(--font-sans);
 }
 
+.site-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-color: var(--background);
+  background-image: url("/background.jpg?v=2");
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.site-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgb(11 13 16 / 0.55) 0%,
+    rgb(11 13 16 / 0.28) 36%,
+    rgb(11 13 16 / 0.08) 58%,
+    transparent 76%
+  );
+}
+
 ::selection {
   background: rgb(94 234 212 / 0.22);
   color: var(--foreground);
@@ -53,14 +78,6 @@ body {
 
 .hero-enter {
   animation: fade-up 0.55s ease both;
-}
-
-.hero-glow {
-  background: radial-gradient(
-    ellipse 70% 50% at 88% 8%,
-    rgb(94 234 212 / 0.08),
-    transparent 58%
-  );
 }
 
 @media (prefers-reduced-motion: reduce) {

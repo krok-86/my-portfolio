@@ -3,7 +3,7 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { Container } from "@/components/layout/Container";
-import { contacts } from "@/content/contacts";
+import { contacts, getResume } from "@/content/contacts";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/types/content";
 import { cn } from "@/lib/utils";
@@ -19,6 +19,7 @@ export function Header({ dict, locale }: HeaderProps) {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const wasOpen = useRef(false);
+  const resume = getResume(locale);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -87,7 +88,7 @@ export function Header({ dict, locale }: HeaderProps) {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line/80 bg-background/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-line/80 bg-background/55 backdrop-blur-md">
       <Container className="flex h-16 items-center justify-between">
         <a
           href={`/${locale}`}
@@ -123,8 +124,8 @@ export function Header({ dict, locale }: HeaderProps) {
             {dict.header.email}
           </a>
           <a
-            href={contacts.resumeHref}
-            download
+            href={resume.href}
+            download={resume.download}
             className="hidden text-sm text-muted transition-colors hover:text-accent md:inline"
           >
             {dict.header.resume}
@@ -184,8 +185,8 @@ export function Header({ dict, locale }: HeaderProps) {
             {dict.header.email}
           </a>
           <a
-            href={contacts.resumeHref}
-            download
+            href={resume.href}
+            download={resume.download}
             className="py-3 text-lg text-muted"
             onClick={() => setOpen(false)}
           >

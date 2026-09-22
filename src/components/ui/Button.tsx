@@ -5,7 +5,7 @@ type ButtonProps = {
   href: string;
   children: ReactNode;
   variant?: "primary" | "ghost";
-  download?: boolean;
+  download?: boolean | string;
   external?: boolean;
   className?: string;
 };
@@ -32,7 +32,9 @@ export function Button({
           "border border-line text-foreground hover:border-accent/40 hover:text-accent",
         className,
       )}
-      {...(download ? { download: true } : {})}
+      {...(download
+        ? { download: typeof download === "string" ? download : true }
+        : {})}
       {...(external
         ? { target: "_blank", rel: "noopener noreferrer" }
         : {})}

@@ -1,4 +1,4 @@
-import { contacts } from "@/content/contacts";
+import { contacts, getResume } from "@/content/contacts";
 import { Button } from "@/components/ui/Button";
 import { CodeSnippet } from "@/components/ui/CodeSnippet";
 import { Container } from "@/components/layout/Container";
@@ -9,14 +9,17 @@ import {
   MailIcon,
 } from "@/components/icons/Icons";
 import type { Dictionary } from "@/types/content";
+import type { Locale } from "@/i18n/config";
 
 type HeroProps = {
   dict: Dictionary;
+  locale: Locale;
 };
 
-export function Hero({ dict }: HeroProps) {
+export function Hero({ dict, locale }: HeroProps) {
+  const resume = getResume(locale);
   return (
-    <section className="hero-glow relative overflow-hidden pt-16 pb-20 sm:pt-20 sm:pb-28">
+    <section className="relative pt-16 pb-20 sm:pt-20 sm:pb-28">
       <Container className="grid items-start gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-16">
         <div className="hero-enter">
           <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
@@ -64,8 +67,8 @@ export function Hero({ dict }: HeroProps) {
             </li>
             <li>
               <a
-                href={contacts.resumeHref}
-                download
+                href={resume.href}
+                download={resume.download}
                 className="inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-accent"
               >
                 <DownloadIcon className="size-4" />
