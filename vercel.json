@@ -1,0 +1,19 @@
+{
+  "redirects": [
+    {
+      "source": "/content-factory",
+      "destination": "/content-factory/",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/content-factory/",
+      "destination": "http://206.245.129.96:8787/"
+    },
+    {
+      "source": "/content-factory/:path*",
+      "destination": "http://206.245.129.96:8787/:path*"
+    }
+  ]
+}

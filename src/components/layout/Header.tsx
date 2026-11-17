@@ -110,6 +110,12 @@ export function Header({ dict, locale }: HeaderProps) {
               {item.label}
             </a>
           ))}
+          <a
+            href="/content-factory/"
+            className="text-sm text-muted transition-colors hover:text-foreground"
+          >
+            Content Factory
+          </a>
         </nav>
 
         <div className="flex items-center gap-3 md:gap-5">
@@ -177,6 +183,13 @@ export function Header({ dict, locale }: HeaderProps) {
               {item.label}
             </a>
           ))}
+          <a
+            href="/content-factory/"
+            className="py-3 text-lg text-foreground"
+            onClick={() => setOpen(false)}
+          >
+            Content Factory
+          </a>
           <a
             href={`mailto:${contacts.email}`}
             className="py-3 text-lg text-muted"
