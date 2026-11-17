@@ -111,7 +111,7 @@ export function Header({ dict, locale }: HeaderProps) {
             </a>
           ))}
           <a
-            href="/content-factory/"
+            href="/content-factory"
             className="text-sm text-muted transition-colors hover:text-foreground"
           >
             Content Factory
@@ -184,7 +184,7 @@ export function Header({ dict, locale }: HeaderProps) {
             </a>
           ))}
           <a
-            href="/content-factory/"
+            href="/content-factory"
             className="py-3 text-lg text-foreground"
             onClick={() => setOpen(false)}
           >
